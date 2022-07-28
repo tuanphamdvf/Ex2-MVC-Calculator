@@ -220,7 +220,6 @@ class View {
   bindDecimal = (handler) => {
     this.button.addEventListener("click", (e) => {
       if (e.target.className === "decimal") {
-        console.log("decimal");
         handler();
       }
     });
@@ -230,7 +229,6 @@ class View {
       if (e.target.className === "operator") {
         const keyValue = e.target.dataset.action;
         const keyDisplay = e.target.innerHTML;
-        console.log(keyDisplay);
         handler(keyValue, keyDisplay);
       }
     });
