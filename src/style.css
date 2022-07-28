@@ -1,0 +1,79 @@
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(90deg, rgb(77, 56, 216) 0%, rgb(122, 132, 219) 100%);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3{
+    font-size: 32px;
+    flex-grow: 1;
+    margin-top: 24px;
+    color:  rgba(44, 19, 206, 0.869);
+}
+.calculator{
+    width:430px;
+    height: 500px;
+    background: white;
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 16px;
+
+}
+.wrapper{
+    width: 100%;
+    flex-grow: 2;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+
+}
+.calculator__keys {
+    width:100%;
+    padding: 8px;
+    margin-left: 24px;
+    margin-bottom: 32px;
+    
+}
+.calculator__display{
+    width:92%;
+    border:1px solid white;
+    padding:5px 7px;
+    text-align:right;
+    border-radius:4px;
+    margin-left: 16px;
+    font-size: 24px;
+}
+div button{
+    width:23%;
+    height:46px;
+    margin-top:5px;
+    display: inline-block;
+    cursor: pointer;
+    background: linear-gradient(90deg, rgb(100, 145, 205) 0%, rgb(14, 123, 200) 100%);
+    color: white;
+    border-radius: 16px;
+    border: solid white;
+    font-size: 18px;
+    
+}
+div button:active{
+    background: linear-gradient(90deg, rgb(76, 122, 182) 0%, rgb(2, 58, 98) 100%);
+}
+div .calculate{
+    height:200px;
+    float:right;
+    margin-right:32px;
+}
