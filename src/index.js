@@ -95,9 +95,10 @@ class Model {
     this.num2;
     this.operator;
     this.keyContent = "0";
+    // Biến thể hiện giá trị được nhập vào trước đó từ người dùng, dùng để xác định logic tiếp theo được thực hiện 
     this.preType;
   }
-
+  // Hàm nhận vào 2 số và 1 toán tử, trả về kết quả là 1 số
   calculate = () => {
     if (this.operator === "add") {
       return (this.result = parseFloat(this.num1) + parseFloat(this.num2));
@@ -112,6 +113,8 @@ class Model {
       return (this.result = parseFloat(this.num1) / parseFloat(this.num2));
     } else return (this.result = "Error");
   };
+
+  // Nhận vào số hiển thị hiện tại và số được nhập vào, nếu số hiện tại là 0 thì hiển thị số mới, ngược lại nếu khác 0 thì nối tiếp số mới vào.
   numberButton = (displayNum, keyValue) => {
     if (
       displayNum === "0" ||
@@ -124,6 +127,7 @@ class Model {
     }
     this.preType = "number";
   };
+//hàm nhận vào toán tử, nếu trước đó có toán tử thì thực hiện phép tính cũ rồi mới tiếp tục gán toán tử vào biến 
   operatorButton = (keyValue, keyDisplay) => {
     if (this.operator === undefined) {
       this.preType = "operator";
@@ -137,6 +141,7 @@ class Model {
       this.keyContent = keyDisplay;
     }
   };
+
   clearButon = () => {
     this.keyContent = "0";
     this.operator = undefined;
@@ -149,6 +154,7 @@ class Model {
       this.keyContent = "0.";
     }
   };
+  //  hàm trả về kết quả khi người dùng ấn dấu “=”
   equaButton = () => {
     this.num2 = this.keyContent;
 
@@ -182,6 +188,7 @@ class View {
     this.calculator.append(this.title, this.display, this.button);
     this.container.append(this.calculator);
   }
+// Tạo và lấy ra các element
   createElement(tag, className) {
     const element = document.createElement(tag);
     if (className) element.classList.add(className);
@@ -192,6 +199,7 @@ class View {
     const element = document.querySelector(selector);
     return element;
   }
+
   render(buttons) {
     buttons.forEach((button) => {
       if (button.type == "number") {
@@ -262,6 +270,7 @@ class Controller {
     this.view.bindEqua(this.handleCalculate);
     this.view.bindDecimal(this.handleDecimal);
   }
+
   handleNumber = (keyValue) => {
     this.model.numberButton(this.view.getDisplay(), keyValue);
     this.view.displayNum(this.model.getKeyContent());
